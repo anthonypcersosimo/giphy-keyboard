@@ -1,0 +1,23 @@
+/* Custom Styles here */
+
+/* Background for header */
+#header-img {
+    background-image: url(../media/blastoff.png);
+    width: 100%;
+    min-height: 100px;
+    max-height: 280px;
+    padding: 0;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 0;
+}
+
+#header-gif {
+    min-height: 100px;
+    max-height: 240px;
+
+    position: absolute;
+    top: 0;
+    right: 40px;
+    z-index: 1;
+}
