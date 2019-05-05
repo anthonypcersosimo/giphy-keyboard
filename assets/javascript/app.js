@@ -17,6 +17,7 @@ $( document ).ready(function() {
             var btn = $("<button>")
             // give it a class of gif for styling and listening for click events
             btn.addClass("button");
+            btn.addClass("button-primary");
             // Give the button a specific data attribute that we can grab on click
             btn.attr("data-name", startingButtons[i]);
             // Give the button some text so the client can see what they're clicking
@@ -39,6 +40,7 @@ $( document ).ready(function() {
         renderButtons();
     });
     renderButtons();
+  
     // Listening for a click on any button with the class of 'gif'
     $(document).on("click", ".button", function (){
         console.log(this);

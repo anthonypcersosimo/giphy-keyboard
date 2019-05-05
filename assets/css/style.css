@@ -56,20 +56,75 @@
     margin: 0 auto;
     font-family: 'Sunflower';
     font-style: italic;
-    text-align: center;
+    font-size: 21pt;
+    text-align: left;
     font-weight: bolder;
     padding: 18px;
-    border-style: solid;
-    border-top-width: 0;
-    border-bottom-width: 2px;
-    border-right-width: 0;
-    border-left-width: 0;
-    border-color: rgb(158, 158, 158);
-    max-width: 625px;
+    max-width: 960px;
 }
 
 #new-gif {
     width: 400px;
     display: inline-block;
     margin: 0 30px 0 30px;
+    text-align: center;
 }
+
+#gif-container {
+    background-color: rgb(241, 241, 241);
+    padding: 10px;
+}
+
+@media screen and (max-width: 1450px) {
+    #header-gif {
+        height: 200px;
+        width: auto;
+        position: absolute;
+        top: 0;
+        right: 40px;
+        z-index: 1;
+    }
+  }
+
+@media screen and (max-width: 1200px) {
+    #header-gif {
+        height: 150px;
+        width: auto;
+        position: absolute;
+        top: 0;
+        right: 40px;
+        z-index: 1;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .value-props, #button-container {
+        margin-top: 10px;
+        width: 520px;
+
+    }
+    #header-gif {
+        height: 110px;
+        width: auto;
+        position: absolute;
+        top: 0;
+        right: 20px;
+        z-index: 1;
+    }
+  }
+
+@media screen and (max-width: 600px) {
+    .value-props, #button-container {
+        margin-top: 10px;
+        width: 490px;
+
+    }
+    #header-gif {
+        height: 90px;
+        width: auto;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+    }
+  }
