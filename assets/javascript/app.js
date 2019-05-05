@@ -1,31 +1,30 @@
 // Javascript goes here!
 
 // Declare global variables
-var startingButtons = ["Spongebob", "Squidward", "Sandy Cheeks", "Patrick Star", "Mr. Krabs", "Plankton", "Mrs. Puff", "Bubble Buddy", "Boo Boo Keys"];
+var startingButtons = ["Spongebob", "Squidward", "Patrick Star", "Mr. Krabs", "Plankton", "Mrs Puff", "Bubble Buddy",];
 
 // On page load create default buttons
 $( document ).ready(function() {
     
     function renderButtons() {
-    // Clearing the 'buttons-view' div so that we do not have multiple buttons of the same type
-    $("#button-container").empty();
-    // Console log that the page has loaded
-    console.log( "ready!" );
-    // Create loop that will create buttons for each item in 'startingButtons' array
-    for (i = 0; i < startingButtons.length; i++) {
-        // create new button
-        var btn = $("<button>")
-        // give it a class of gif for styling and listening for click events
-        btn.addClass("gif");
-        // Give the button a specific data attribute that we can grab on click
-        btn.attr("data-name", startingButtons[i]);
-        // Give the button some text so the client can see what they're clicking
-        btn.text(startingButtons[i]);
-        // Append the button to the container that holds the buttons
-        $("#button-container").append(btn);
-        }
+        // Clearing the 'buttons-view' div so that we do not have multiple buttons of the same type
+        $("#button-container").empty();
+        // Console log that the page has loaded
+        console.log( "ready!" );
+        // Create loop that will create buttons for each item in 'startingButtons' array
+        for (i = 0; i < startingButtons.length; i++) {
+            // create new button
+            var btn = $("<button>")
+            // give it a class of gif for styling and listening for click events
+            btn.addClass("button");
+            // Give the button a specific data attribute that we can grab on click
+            btn.attr("data-name", startingButtons[i]);
+            // Give the button some text so the client can see what they're clicking
+            btn.text(startingButtons[i]);
+            // Append the button to the container that holds the buttons
+            $("#button-container").append(btn);
+        };
     };
-    renderButtons();
 
     // On Click of any button
     $("#submitButton").on("click", function (event) {
@@ -39,9 +38,10 @@ $( document ).ready(function() {
         // Rerunning the render buttons function to add the new button and give it the proper attributes
         renderButtons();
     });
-
+    renderButtons();
     // Listening for a click on any button with the class of 'gif'
-    $(".gif").on("click", function (){
+    $(".button").on("click", function (){
+        console.log(this);
         // Getting the value from the button
         var newGif = $(this).attr("data-name");
         // building my url for API query
@@ -53,13 +53,14 @@ $( document ).ready(function() {
         url: queryURL,
         method: "GET"
         }).then(function(response) {
+            $("#gif-container").empty();
             console.log(response);
             var results = response.data;
             for (var i = 0; i < 10; i++) {
-                var gifDiv = $("<div>");
+                var gifDiv = $("<div>").attr("id", "new-gif");
                 var rating = results[i].rating;
                 var p = $("<p>").text("Rating: " + rating);
-                var personImage = $("<img>").attr("id", "new-gif");
+                var personImage = $("<img>");
                 personImage.attr("src", results[i].images.fixed_height.url);
                 gifDiv.prepend(p);
                 gifDiv.prepend(personImage);

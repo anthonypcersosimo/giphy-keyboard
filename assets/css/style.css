@@ -47,7 +47,7 @@
     min-width: 490px;
 }
 
-.gif {
+.button {
     margin: 10px 32px 10px 32px;
     width: 160.19px;
 }
@@ -66,4 +66,10 @@
     border-left-width: 0;
     border-color: rgb(158, 158, 158);
     max-width: 625px;
+}
+
+#new-gif {
+    width: 400px;
+    display: inline-block;
+    margin: 0 30px 0 30px;
 }
