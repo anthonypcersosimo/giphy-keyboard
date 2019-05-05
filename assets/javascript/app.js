@@ -25,7 +25,7 @@ $( document ).ready(function() {
             $("#button-container").append(btn);
         };
     };
-
+   
     // On Click of any button
     $("#submitButton").on("click", function (event) {
         event.preventDefault();
@@ -40,7 +40,7 @@ $( document ).ready(function() {
     });
     renderButtons();
     // Listening for a click on any button with the class of 'gif'
-    $(".button").on("click", function (){
+    $(document).on("click", ".button", function (){
         console.log(this);
         // Getting the value from the button
         var newGif = $(this).attr("data-name");
