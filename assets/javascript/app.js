@@ -40,8 +40,31 @@ $( document ).ready(function() {
         renderButtons();
     });
 
+    // Listening for a click on any button with the class of 'gif'
     $(".gif").on("click", function (){
-        console.log($(this).attr("data-name"));
+        // Getting the value from the button
+        var newGif = $(this).attr("data-name");
+        // building my url for API query
+        var apiKey = "BZI84sWlneOyO3eCWFkIM1AX7LC1u25V";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+        newGif + "&api_key=" + apiKey;
 
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+        }).then(function(response) {
+            console.log(response);
+            var results = response.data;
+            for (var i = 0; i < 10; i++) {
+                var gifDiv = $("<div>");
+                var rating = results[i].rating;
+                var p = $("<p>").text("Rating: " + rating);
+                var personImage = $("<img>").attr("id", "new-gif");
+                personImage.attr("src", results[i].images.fixed_height.url);
+                gifDiv.prepend(p);
+                gifDiv.prepend(personImage);
+                $("#gif-container").prepend(gifDiv);
+            }
+        });
     })
 });
