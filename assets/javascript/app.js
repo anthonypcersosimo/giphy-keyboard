@@ -6,6 +6,9 @@ var startingButtons = ["Spongebob", "Squidward", "Sandy Cheeks", "Patrick Star",
 // On page load create default buttons
 $( document ).ready(function() {
     
+    function renderButtons() {
+    // Clearing the 'buttons-view' div so that we do not have multiple buttons of the same type
+    $("#button-container").empty();
     // Console log that the page has loaded
     console.log( "ready!" );
     // Create loop that will create buttons for each item in 'startingButtons' array
@@ -20,10 +23,25 @@ $( document ).ready(function() {
         btn.text(startingButtons[i]);
         // Append the button to the container that holds the buttons
         $("#button-container").append(btn);
-    }
+        }
+    };
+    renderButtons();
 
     // On Click of any button
-    $("#submitButton").on("click", function () {
-        
+    $("#submitButton").on("click", function (event) {
+        event.preventDefault();
+        // Console log that the create button button works and the listener is pointing to the right object
+        console.log("You've hit the submit button!")
+        // Get the value from the form input on submit
+        var newTopic = $("#formInput").val().trim();
+        // The new topic from the form is added to the 'startingButtons' array
+        startingButtons.push(newTopic);
+        // Rerunning the render buttons function to add the new button and give it the proper attributes
+        renderButtons();
+    });
+
+    $(".gif").on("click", function (){
+        console.log($(this).attr("data-name"));
+
     })
 });
