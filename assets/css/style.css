@@ -111,7 +111,7 @@
         right: 20px;
         z-index: 1;
     }
-  }
+}
 
 @media screen and (max-width: 600px) {
     .value-props, #button-container {
@@ -127,4 +127,20 @@
         right: 0;
         z-index: 1;
     }
-  }
+}
+
+@media screen and (max-width: 500px) {
+    .value-props, #button-container {
+        margin-top: 10px;
+        width: 460px;
+
+    }
+    #header-gif {
+        height: 60px;
+        width: auto;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+    }
+}
